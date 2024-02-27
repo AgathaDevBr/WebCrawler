@@ -25,14 +25,12 @@ namespace WebCrawler.Service.Services
 
         public async Task<CrawlResult> CrawlWebsite(HttpClient httpClient)
         {
-            string url = "https://proxyservers.pro/proxy/list/order/updated/order_dir/desc";
+            string url = "https://proxyservers.pro/?ts=fENsZWFuUGVwcGVybWludEJsYWNrfHw1Y2U4NHxidWNrZXQwMTF8fHx8fHw2NWRkNDk5NGM4NmM5fHx8MTcwOTAwMTEwOC44NHw1NTgxYTZmYzIyYzIxNTM3NWViODI3MWUwM2I5ZGEyOTRmMDUwYzkwfHNrZW56by50cGx8fHx8MXx8MHwwfHx8fDF8fHx8fDB8MHx8fHx8fHx8fHwwfDB8fDB8fHwwfDB8VzEwPXx8MXxXMTA9fDM3MzYxMGMzOGEzNDczMjU1YjdkZGRiNmUyYjdmN2NkOTAzMDVkOGR8MHxkcC10ZWFtaW50ZXJuZXQwOV8zcGh8MHwwfHw%3D&skrghlp=u4HryDXg02keRopJlWJWd2EkKcvS2SpvWwBFFSlwcqm%2BPcdd61giz1u0ARI7BOj4&query=Servidor+Proxy&afdToken=ChMI0aKqoL3KhAMVKqaVAh076AEZEmYBlLqpj3HhjhXs-rVYP7HjkuNtTeIP-QFFOb2TXQOtPZezt4MP4ADSEWjjTOjNrZsEUDFDWw56chzI4VBPo6tOizSrYmh_dQKjjjlOz26lXLmLkbu0vLtTw32xKOLUdKsq3FWAyPQ&pcsa=false&nb=0&nm=3&nx=300&ny=88&is=530x496&clkt=96";
             string jsonFilePath = "proxies.json";
             string htmlDirectory = "html_pages";
 
-            // Iniciar o rastreamento
             DateTime startTime = DateTime.Now;
 
-            // Listas para armazenar os proxies e os resultados de rastreamento
             List<ProxyInfo> proxies = new List<ProxyInfo>();
             List<string> htmlFiles = new List<string>();
 
@@ -49,12 +47,10 @@ namespace WebCrawler.Service.Services
                 CriaArquivoHTML(content, htmlDirectory, htmlFiles, proxies);
                 CriaArquivoJson(jsonFilePath, proxies);
 
-                // Finalizar o rastreamento
                 DateTime endTime = DateTime.Now;
                 int totalPages = 1;
                 int totalLines = proxies.Count;
 
-                // Salvar os resultados de rastreamento
                 CrawlResult crawlResult = new CrawlResult
                 {
                     StartTime = startTime,
@@ -69,14 +65,8 @@ namespace WebCrawler.Service.Services
 
                 return crawlResult;
             }
-            catch (HttpRequestException ex)
-            {
-                // Lidar com exceções de requisição HTTP
-                throw new HttpRequestException("Erro durante a requisição HTTP.", ex);
-            }
             catch (Exception ex)
             {
-                // Lidar com outras exceções
                 throw new Exception("Ocorreu um erro durante o rastreamento da web.", ex);
             }
         }
@@ -89,28 +79,24 @@ namespace WebCrawler.Service.Services
 
         private void CriaArquivoHTML(string content, string htmlDirectory, List<string> htmlFiles, List<ProxyInfo> proxies)
         {
+            
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(content);
 
-            // Salvar o conteúdo em um arquivo .html
             string htmlFileName = Path.Combine(htmlDirectory, $"page_1.html");
             File.WriteAllText(htmlFileName, content);
             htmlFiles.Add(htmlFileName);
 
-            // Encontre a tabela usando XPath
-            var table = doc.DocumentNode.SelectSingleNode("//table[@id='proxy_list_table']");
+            var table = doc.DocumentNode.SelectSingleNode("//div[@class='wrapper3']//table[@id='proxy_list_table']");
 
             if (table != null)
             {
-                // Encontre todas as linhas da tabela
                 var rows = table.SelectNodes("tbody/tr");
 
-                // Verifique se as linhas foram encontradas
                 if (rows != null)
                 {
                     foreach (var row in rows)
                     {
-                        // Selecione os elementos dentro da linha
                         var cells = row.SelectNodes("td");
 
                         if (cells != null && cells.Count >= 4)
@@ -125,6 +111,10 @@ namespace WebCrawler.Service.Services
 
                     }
                 }
+            }
+            else
+            {
+                throw new Exception("Nenhuma linha encontrada na tabela de proxies ou proxies expirados.");
             }
         }
 

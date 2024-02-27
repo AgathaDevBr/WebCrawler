@@ -34,11 +34,6 @@ namespace WebCrawler.Service.Controllers
                 var result = await _crawlService.CrawlWebsite(httpClient);
                 return Ok(result);
             }
-            catch (HttpRequestException ex)
-            {
-                // Lidar com exceção de requisição HTTP
-                return StatusCode(StatusCodes.Status500InternalServerError, $"Erro na requisição HTTP: {ex.Message}");
-            }
             catch (Exception ex)
             {
                 // Lidar com outras exceções
