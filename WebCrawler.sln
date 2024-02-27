@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawler.Service", "WebCrawler.Service\WebCrawler.Service.csproj", "{E4B8334A-778D-4928-A905-D0F2A38E470A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{B0DD4B78-782C-46E0-9210-672B2EA9F615}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - DATA", "2 - DATA", "{AF3202C9-372E-4476-B5C5-E440D5B548EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawler.Data", "WebCrawler.Data\WebCrawler.Data.csproj", "{774F2B99-143C-44BB-B358-5B39D8E7D743}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4B8334A-778D-4928-A905-D0F2A38E470A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4B8334A-778D-4928-A905-D0F2A38E470A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4B8334A-778D-4928-A905-D0F2A38E470A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4B8334A-778D-4928-A905-D0F2A38E470A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{774F2B99-143C-44BB-B358-5B39D8E7D743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{774F2B99-143C-44BB-B358-5B39D8E7D743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{774F2B99-143C-44BB-B358-5B39D8E7D743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{774F2B99-143C-44BB-B358-5B39D8E7D743}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E4B8334A-778D-4928-A905-D0F2A38E470A} = {B0DD4B78-782C-46E0-9210-672B2EA9F615}
+		{774F2B99-143C-44BB-B358-5B39D8E7D743} = {AF3202C9-372E-4476-B5C5-E440D5B548EA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D145196-B78E-4662-A340-7CFBC8FF29CA}
+	EndGlobalSection
+EndGlobal

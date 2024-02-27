@@ -1,0 +1,6 @@
+@WebCrawler.Service_HostAddress = http://localhost:5216
+
+GET {{WebCrawler.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
