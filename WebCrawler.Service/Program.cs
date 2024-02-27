@@ -1,13 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WebCrawler.Data.Context;
+using WebCrawler.Service.Configurations;
 using WebCrawler.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Adicionando as configurações do Swagger
+SwaggerConfiguration.AddSwagger(builder);
 
 // Registra o serviço HttpClient
 builder.Services.AddHttpClient();
@@ -31,7 +32,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-app.UseRouting(); // Adiciona o middleware de roteamento
+app.UseRouting(); 
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
