@@ -15,7 +15,7 @@ builder.Services.AddHttpClient();
 // Configura o DbContext para usar um banco de dados em memória
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseInMemoryDatabase("BDWebCraw");
+    options.UseInMemoryDatabase("BDWebCrawler");
 });
 
 // Registra o serviço WebService
