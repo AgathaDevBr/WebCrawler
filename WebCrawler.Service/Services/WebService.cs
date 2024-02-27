@@ -25,7 +25,7 @@ namespace WebCrawler.Service.Services
 
         public async Task<CrawlResult> CrawlWebsite(HttpClient httpClient)
         {
-            string url = "https://proxyservers.pro/?ts=fENsZWFuUGVwcGVybWludEJsYWNrfHw1Y2U4NHxidWNrZXQwMTF8fHx8fHw2NWRkNDk5NGM4NmM5fHx8MTcwOTAwMTEwOC44NHw1NTgxYTZmYzIyYzIxNTM3NWViODI3MWUwM2I5ZGEyOTRmMDUwYzkwfHNrZW56by50cGx8fHx8MXx8MHwwfHx8fDF8fHx8fDB8MHx8fHx8fHx8fHwwfDB8fDB8fHwwfDB8VzEwPXx8MXxXMTA9fDM3MzYxMGMzOGEzNDczMjU1YjdkZGRiNmUyYjdmN2NkOTAzMDVkOGR8MHxkcC10ZWFtaW50ZXJuZXQwOV8zcGh8MHwwfHw%3D&skrghlp=u4HryDXg02keRopJlWJWd2EkKcvS2SpvWwBFFSlwcqm%2BPcdd61giz1u0ARI7BOj4&query=Servidor+Proxy&afdToken=ChMI0aKqoL3KhAMVKqaVAh076AEZEmYBlLqpj3HhjhXs-rVYP7HjkuNtTeIP-QFFOb2TXQOtPZezt4MP4ADSEWjjTOjNrZsEUDFDWw56chzI4VBPo6tOizSrYmh_dQKjjjlOz26lXLmLkbu0vLtTw32xKOLUdKsq3FWAyPQ&pcsa=false&nb=0&nm=3&nx=300&ny=88&is=530x496&clkt=96";
+            string url = "https://proxyservers.pro/proxy/list/order/updated/order_dir/desc";
             string jsonFilePath = "proxies.json";
             string htmlDirectory = "html_pages";
 
